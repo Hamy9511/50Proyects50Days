@@ -11,7 +11,6 @@ next.addEventListener('click', () => {
     if(currentActive > circles.length) {
         currentActive = circles.length
     }
-
     update()
 })
 
@@ -32,14 +31,17 @@ function update() {
         } else {
             circle.classList.remove("container__step__position")
         }
+        console.log(idx + "idx");
     })
 
     const actives = document.querySelectorAll(".container__step__position")
+    
     if (matchMedia('(min-width: 800px)').matches) {
         progress.style.width = (actives.length - 1) / (circles.length - 1) * 100 + '%'
     }else{
         progress.style.height = (actives.length - 1) / (circles.length - 1) * 100 + '%'
     }
+
     if(currentActive === 1) {
         prev.disabled = true
     } else if(currentActive === circles.length) {
@@ -48,4 +50,6 @@ function update() {
         prev.disabled = false
         next.disabled = false
     }
+    console.log(currentActive);
+    console.log(circles.length);
 }
